@@ -1506,6 +1506,13 @@ h6 {
     --section-padding: 70px 0;
   }
 
+  /* Safe max widths for all potentially overflowing elements */
+  html,
+  body {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
   .nav-links {
     display: none;
     position: fixed;
@@ -1518,6 +1525,8 @@ h6 {
     justify-content: center;
     gap: 28px;
     backdrop-filter: blur(20px);
+    overflow-y: auto;
+    padding: 20px;
   }
 
   .nav-links.active {
@@ -1541,16 +1550,24 @@ h6 {
     padding: 120px 0 80px;
   }
 
-  .services-grid {
-    grid-template-columns: 1fr;
+  /* Reduce panel dimensions proportionately */
+  .service-card {
+    padding: 30px 24px;
   }
 
-  .why-grid {
-    grid-template-columns: 1fr;
+  .why-card {
+    padding: 28px 20px;
   }
 
+  .review-card {
+    padding: 24px;
+  }
+
+  .services-grid,
+  .why-grid,
   .reviews-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .hero-stats {
@@ -1560,6 +1577,26 @@ h6 {
 
   .about-features {
     grid-template-columns: 1fr;
+  }
+
+  /* Prevent clipped panels/elements */
+  .about-image img {
+    height: 350px;
+  }
+
+  .about-experience {
+    right: 0px;
+    bottom: -15px;
+    padding: 16px 24px;
+    max-width: 90%;
+  }
+
+  .about-experience .number {
+    font-size: 2.2rem;
+  }
+
+  .contact-map {
+    min-height: 300px;
   }
 
   .footer-grid {
@@ -1595,12 +1632,27 @@ h6 {
   }
 
   .service-card {
-    padding: 28px 24px;
+    padding: 24px 20px;
   }
 
   .cta-buttons {
     flex-direction: column;
     align-items: center;
+  }
+
+  /* Prevent navigation overflow on very small devices */
+  .nav-brand-name {
+    font-size: 0.9rem;
+  }
+
+  .nav-brand-sub {
+    font-size: 0.65rem;
+  }
+
+  .nav-logo {
+    width: 38px;
+    height: 38px;
+    font-size: 1.2rem;
   }
 }
 
